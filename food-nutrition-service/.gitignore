@@ -1,10 +1,10 @@
-target
+./target
 !.mvn/wrapper/maven-wrapper.jar
 .idea
 *.iws
 *.iml
 *.ipr
-
+./logs
 
 # Compiled class file
 *.class

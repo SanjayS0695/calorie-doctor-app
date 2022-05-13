@@ -1,3 +1,5 @@
 # Default ignored files
 /shelf/
 /.idea/workspace.xml
+/food-nutrition-service/target
+/food-nutrition-service/logs

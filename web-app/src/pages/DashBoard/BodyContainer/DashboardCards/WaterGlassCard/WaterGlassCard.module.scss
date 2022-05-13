@@ -1,0 +1,92 @@
+@import 'src/assets/scss/variables.module';
+
+@mixin flex-align-centre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin background-color {
+    background: linear-gradient(120deg, $primary, #99b45a);
+}
+
+@mixin round-background {
+    background-color: $secondary;
+    box-shadow: 0 0 6px #00000029;
+    border-radius: 50px;
+}
+
+@mixin inner-circle-hover {
+    width: 4vh;
+    height: 4vh;
+    cursor: pointer;
+    @include round-background;
+    color: $secondaryDark;
+    transition: 0.5s;
+}
+
+.main-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+
+    .progress-action {
+        display: inline-flex;
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+
+        .minus-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+
+            svg {
+                font-size: 40px;
+                color: $light;
+            }
+
+            svg:hover {
+                @include inner-circle-hover();
+            }
+        }
+
+        .circular-progress {
+            flex: 1;
+        }
+
+        .add-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+
+            svg {
+                font-size: 40px;
+                color: $light;
+            }
+
+            svg:hover {
+                @include inner-circle-hover();
+            }
+        }
+    }
+
+    .progress-content {
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-shadow: -0.6px -0.6px 0 $textColorMain,
+            0.6px -0.6px 0 $textColorMain, -0.6px 0.6px 0 $textColorMain,
+            0.6px 0.6px 0 $textColorMain;
+        font-size: 20px;
+        color: $light;
+        padding: 5% 0 0 0;
+    }
+}

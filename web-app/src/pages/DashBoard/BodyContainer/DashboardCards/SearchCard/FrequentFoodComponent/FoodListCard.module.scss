@@ -1,0 +1,258 @@
+@import 'src/assets/scss/variables.module';
+
+.wrapper {
+    width: 90%;
+    height: 65%;
+    margin: 5% 0 0 5%;
+    perspective: 1000px;
+    position: relative;
+
+    .sub-wrapper {
+        width: 100%;
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        position: relative;
+
+        &.flipped {
+            height: 115%;
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
+
+            &.front-card {
+                background-color: linear-gradient(
+                    to bottom right,
+                    $secondary,
+                    #99b45a
+                );
+                display: flex;
+                flex-direction: column;
+
+                ::-webkit-scrollbar {
+                    width: 10px;
+                }
+
+                ::-webkit-scrollbar-track {
+                    box-shadow: inset 0 0 5px rgb(190, 222, 111);
+                    border-radius: 10px;
+                    background: $light;
+                }
+
+                ::-webkit-scrollbar-thumb {
+                    background: #f17f53;
+                    border-radius: 10px;
+                }
+
+                ::-webkit-scrollbar-thumb:hover {
+                    cursor: pointer !important;
+                }
+
+                .header {
+                    padding: 5% 0 2.5% 5%;
+                    font-size: 18px;
+                    color: $light;
+                    text-shadow: -0.6px -0.6px 0 $textColorMain,
+                        0.6px -0.6px 0 $textColorMain,
+                        -0.6px 0.6px 0 $textColorMain,
+                        0.6px 0.6px 0 $textColorMain;
+
+                    display: flex;
+                    align-items: center;
+
+                    .save-icon {
+                        position: absolute;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-left: 40%;
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+
+                        &:hover {
+                            background-color: $secondary;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .body {
+                    top: 20%;
+                    width: 90%;
+                    height: 70%;
+                    padding: 0 0 5% 5%;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    position: absolute;
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+
+            &.back-card {
+                background-color: var(--light);
+                transform: rotateY(180deg);
+                background: #ddf0b2;
+
+                .back-card-content {
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+
+                    .back-card-header {
+                        position: relative;
+                        padding: 20px 30px 40px;
+
+                        &::after {
+                            content: '';
+                            display: block;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background-image: linear-gradient(
+                                to bottom left,
+                                $primary 10%,
+                                #99b45a 115%
+                            );
+                            z-index: -1;
+                            border-radius: 0px 0px 50% 0px;
+                        }
+
+                        .header-content {
+                            display: flex;
+                            flex-direction: row;
+
+                            .section-one {
+                                flex: 1;
+                                display: inline-flex;
+                                flex-direction: column;
+                                margin: 0 0 0 5%;
+
+                                h2 {
+                                    color: $light;
+                                    font-size: 22px;
+                                    font-weight: 900;
+                                    text-transform: uppercase;
+                                    text-align: left;
+                                    text-shadow: -0.6px -0.6px 0 $textColorMain,
+                                        0.6px -0.6px 0 $textColorMain,
+                                        -0.6px 0.6px 0 $textColorMain,
+                                        0.6px 0.6px 0 $textColorMain;
+                                    margin-top: 0;
+                                    margin-bottom: 12.5%;
+                                }
+
+                                h3 {
+                                    color: $light;
+                                    font-size: 20px;
+                                    margin: 0;
+                                    text-shadow: -0.6px -0.6px 0 $textColorMain,
+                                        0.6px -0.6px 0 $textColorMain,
+                                        -0.6px 0.6px 0 $textColorMain,
+                                        0.6px 0.6px 0 $textColorMain;
+                                }
+
+                                .food-nutrition {
+                                    display: inline-flex;
+                                    flex-direction: column;
+
+                                    .row-one {
+                                        display: inline-flex;
+                                        flex-direction: row;
+
+                                        .nutrient {
+                                            flex: 1;
+
+                                            h4 {
+                                                color: $textColorMainDark;
+                                                margin-bottom: 5%;
+                                                font-size: 16px;
+                                            }
+
+                                            span {
+                                                font-size: 18px;
+                                                color: #fff;
+                                            }
+                                        }
+                                    }
+
+                                    .row-two {
+                                        display: inline-flex;
+                                        flex-direction: row;
+
+                                        .nutrient {
+                                            flex: 1;
+
+                                            h4 {
+                                                color: $textColorMainDark;
+                                                margin-bottom: 5%;
+                                                font-size: 16px;
+                                            }
+
+                                            span {
+                                                font-size: 18px;
+                                                color: #fff;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            .section-two {
+                                flex: 1;
+                                display: flex;
+                                align-items: center;
+                                margin-left: 2.5%;
+
+                                .food-image {
+                                    display: block;
+                                    width: 128px;
+                                    height: 128px;
+                                    margin: 0;
+                                    border-radius: 50%;
+                                    background-color: #fff;
+                                    border: 5px solid #fff;
+                                    object-fit: cover;
+                                    transform: scale(1.25);
+                                }
+                            }
+                        }
+                    }
+
+                    .back-card-body {
+                        display: flex;
+                        flex-direction: row;
+                        width: 90%;
+                        height: 10%;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 5%;
+
+                        button {
+                            background-color: $primary;
+                        }
+
+                        div {
+                            flex: 1;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

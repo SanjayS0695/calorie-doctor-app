@@ -1,0 +1,17 @@
+@import 'src/assets/scss/variables.module';
+
+.inner-circular-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    svg {
+        position: relative;
+        justify-content: center;
+    }
+
+    span {
+        position: relative;
+        color: $light;
+    }
+}

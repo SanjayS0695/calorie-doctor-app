@@ -1,0 +1,143 @@
+@import "src/assets/scss/variables.module";
+
+@mixin round-background {
+  background-color: $secondary;
+  box-shadow: 0 0 6px #00000029;
+  border-radius: 50px;
+}
+
+@mixin align-centre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin arrow-sub {
+  @include align-centre;
+
+  width: 4vh;
+  height: 4vh;
+  border-radius: 50px;
+  border-radius: 50px;
+
+  @include round-background;
+
+  color: $secondaryDark;
+}
+
+.wrapper {
+  display: inline-flex;
+  width: 100%;
+
+  .current-date-wrapper {
+    width: 20%;
+    color: $textColorMain;
+
+    @include align-centre;
+
+    .reload {
+      flex: 1;
+
+      @include align-centre;
+
+      svg {
+        transform: 1s all;
+        font-size: x-large;
+
+        @include round-background;
+      }
+
+      svg:hover {
+        transform: scale(1.2);
+
+        @include round-background;
+
+        cursor: pointer;
+        transition: 0.2s;
+      }
+    }
+
+    .current-date {
+      flex: 1;
+      font-size: larger;
+      font-weight: bolder;
+    }
+  }
+
+  .date-main-wrapper {
+    width: 60%;
+    position: relative;
+
+    .left-arrow-wrapper {
+      position: absolute;
+      top: 25%;
+      left: -3%;
+      cursor: pointer;
+
+      .arrow {
+        @include arrow-sub;
+      }
+
+      .arrow:hover {
+        @include arrow-sub;
+
+        background-color: $primary;
+        transition: 0.2s;
+      }
+
+      svg:hover {
+        width: 3vh;
+        height: 3vh;
+        box-shadow: none;
+        transition: 0.2s;
+
+        @include round-background;
+      }
+    }
+
+    .right-arrow-wrapper {
+      position: absolute;
+      cursor: pointer;
+      top: 25%;
+      right: -3%;
+
+      .arrow {
+        @include arrow-sub;
+      }
+
+      .arrow:hover {
+        @include arrow-sub;
+
+        background-color: $primary;
+        transition: 0.2s;
+      }
+
+      svg:hover {
+        width: 3vh;
+        height: 3vh;
+        box-shadow: none;
+        transition: 0.2s;
+
+        @include round-background;
+      }
+    }
+  }
+
+  .day-count-main {
+    width: 20%;
+    color: $textColorMain;
+
+    @include align-centre;
+
+    svg {
+      float: left;
+      color: #f5c703;
+      font-size: xxx-large;
+    }
+
+    div {
+      font-size: x-large;
+      font-weight: bold;
+    }
+  }
+}

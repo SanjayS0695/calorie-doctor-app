@@ -1,0 +1,108 @@
+@import 'src/assets/scss/variables.module';
+
+.main-container {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    border-radius: 50px;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    display: flex;
+    align-items: center;
+
+    &.active {
+        width: 320px;
+    }
+
+    .search-title {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 40%;
+        height: 85%;
+        left: 15%;
+        background-color: $secondaryDark;
+        border-radius: 50px;
+        color: $light;
+        border: solid;
+
+        span {
+            display: none;
+            padding: 0 0 0 20%;
+            font-size: 17px;
+            transition: all 0.5s;
+        }
+
+        &.active {
+            height: 85%;
+            left: -20%;
+
+            span {
+                display: block;
+                padding: 0 0 0 10%;
+                font-size: 15px;
+            }
+        }
+    }
+
+    input {
+        position: absolute;
+        border: none;
+        border-radius: 50px;
+        background: #fff;
+        outline: none;
+        padding: 0 0 0 10%;
+        font-size: 18px;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        ::placeholder {
+            color: #a6a6a6;
+        }
+    }
+
+    .search-btn {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 60px;
+        width: 60px;
+        background: #fff;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 60px;
+        font-size: 22px;
+        color: $primary;
+        cursor: pointer;
+        z-index: 1;
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        &.active {
+            right: -8%;
+            height: 50px;
+            line-height: 50px;
+            width: 50px;
+            font-size: 20px;
+            background: $secondaryDark;
+            color: #fff;
+            transform: translateY(-50%) rotate(360deg);
+        }
+    }
+
+    .cancel-btn {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 25px;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.5s 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        &.active {
+            right: -18%;
+            transform: translateY(-50%) rotate(360deg);
+        }
+    }
+}

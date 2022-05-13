@@ -1,0 +1,90 @@
+@import 'src/assets/scss/variables.module';
+
+.meal-card {
+    position: absolute;
+    top: 33%;
+    width: 30%;
+    left: 7.3%;
+    margin-top: 9.5%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to bottom right, $primary, #99b45a);
+    border-radius: 5%;
+    z-index: 999;
+
+    color: $light;
+    text-shadow: -0.6px -0.6px 0 $textColorMain, 0.6px -0.6px 0 $textColorMain,
+        -0.6px 0.6px 0 $textColorMain, 0.6px 0.6px 0 $textColorMain;
+    box-shadow: 0 3px 6px #00000029;
+
+    .header {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        margin-top: 1%;
+        width: 100%;
+        height: auto;
+
+        h4 {
+            margin-left: 5%;
+        }
+
+        .close-meal-card {
+            display: flex;
+            align-items: center;
+            margin-left: 10%;
+            margin-right: 5%;
+            svg {
+                color: $textColorMainDark;
+
+                &:hover {
+                    background-color: $secondary;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .meal-container {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        margin: 2.5% 5%;
+
+        .meal-title {
+            padding-left: 5%;
+            flex: 2;
+        }
+
+        .meal-calories {
+            flex: 1;
+        }
+
+        svg {
+            margin-right: 5%;
+            color: #f17f53;
+
+            &:hover {
+                background-color: $secondary;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+        }
+
+        hr {
+            margin: 0 10%;
+        }
+    }
+
+    .meal-container:nth-child(6) {
+        margin: 2.5% 5% 5% 5%;
+    }
+}

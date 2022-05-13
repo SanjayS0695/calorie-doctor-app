@@ -1,0 +1,42 @@
+@import 'src/assets/scss/variables.module';
+
+.frequent-food-item {
+    padding: 0 0 5% 0;
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    color: $light;
+    text-shadow: -0.6px -0.6px 0 $textColorMain, 0.6px -0.6px 0 $textColorMain,
+        -0.6px 0.6px 0 $textColorMain, 0.6px 0.6px 0 $textColorMain;
+
+    .food-header {
+        flex: 1;
+        display: inline-flex;
+        flex-direction: column;
+
+        .title {
+            font-size: 16px;
+        }
+
+        .sub-title {
+            font-size: 14px;
+        }
+    }
+
+    .food-calorie {
+        margin-right: 3%;
+        font-size: 16px;
+    }
+
+    .btn-wrapper {
+        display: flex;
+        align-items: center;
+        padding: 2%;
+
+        svg:hover {
+            background-color: $secondary;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+}

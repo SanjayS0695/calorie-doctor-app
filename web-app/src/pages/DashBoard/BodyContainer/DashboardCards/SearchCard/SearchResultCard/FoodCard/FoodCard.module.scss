@@ -1,0 +1,276 @@
+@import 'src/assets/scss/variables.module';
+
+.back-card-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .back-card-header {
+        position: relative;
+        padding: 20px 30px 40px;
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(
+                to bottom left,
+                $primary 10%,
+                #99b45a 115%
+            );
+            z-index: -1;
+            border-radius: 0px 0px 50% 0px;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: row;
+
+            .section-one {
+                flex: 1;
+                display: inline-flex;
+                flex-direction: column;
+                margin: 0 0 0 5%;
+
+                h2 {
+                    color: $light;
+                    font-size: 22px;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    text-align: left;
+                    text-shadow: -0.6px -0.6px 0 $textColorMain,
+                        0.6px -0.6px 0 $textColorMain,
+                        -0.6px 0.6px 0 $textColorMain,
+                        0.6px 0.6px 0 $textColorMain;
+                    margin-top: 0;
+                    margin-bottom: 12.5%;
+                }
+
+                h3 {
+                    color: $light;
+                    font-size: 20px;
+                    margin: 0;
+                    text-shadow: -0.6px -0.6px 0 $textColorMain,
+                        0.6px -0.6px 0 $textColorMain,
+                        -0.6px 0.6px 0 $textColorMain,
+                        0.6px 0.6px 0 $textColorMain;
+                }
+
+                .food-nutrition {
+                    display: inline-flex;
+                    flex-direction: column;
+
+                    .row-one {
+                        display: inline-flex;
+                        flex-direction: row;
+
+                        .nutrient {
+                            flex: 1;
+
+                            h4 {
+                                color: $textColorMainDark;
+                                margin-bottom: 5%;
+                                font-size: 16px;
+                            }
+
+                            span {
+                                font-size: 18px;
+                                color: #fff;
+                            }
+                        }
+                    }
+
+                    .row-two {
+                        display: inline-flex;
+                        flex-direction: row;
+
+                        .nutrient {
+                            flex: 1;
+
+                            h4 {
+                                color: $textColorMainDark;
+                                margin-bottom: 5%;
+                                font-size: 16px;
+                            }
+
+                            span {
+                                font-size: 18px;
+                                color: #fff;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .section-two {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                margin-left: 2.5%;
+
+                .food-image {
+                    display: block;
+                    width: 128px;
+                    height: 128px;
+                    margin: 0;
+                    border-radius: 50%;
+                    background-color: #fff;
+                    border: 5px solid #fff;
+                    object-fit: cover;
+                    transform: scale(1.25);
+                }
+            }
+        }
+    }
+
+    .back-card-body {
+        height: 30%;
+        margin-top: 5%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+
+        button {
+            flex: 1;
+            margin: 5%;
+            background-color: $primary;
+        }
+
+        .quantity-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .stepper-container {
+                margin-right: 10%;
+                box-shadow: 0 0 5px rgb(190, 222, 111);
+                background-color: $primary;
+                border-radius: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                input[type='number'] {
+                    -moz-appearance: textfield;
+                    text-align: center;
+                    font-size: 16px;
+                    border: none;
+                    background-color: $primary;
+                    color: $light;
+
+                    &::-webkit-inner-spin-button,
+                    &::-webkit-outer-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                }
+
+                button {
+                    margin: 0;
+                    color: $light;
+                    background-color: $primary;
+                    border: none;
+                    font-size: 20px;
+                    cursor: pointer;
+                }
+
+                .decrement {
+                    margin-left: 15%;
+                    border-radius: 50%;
+                }
+
+                .increment {
+                    margin-right: 15%;
+                    border-radius: 50%;
+                }
+            }
+
+            .dropdown-container {
+                display: flex;
+                margin-top: 5%;
+
+                .select-box {
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+
+                    .selected {
+                        background: $primary;
+                        color: $light;
+                        border-radius: 5px;
+                        margin-bottom: 10%;
+                        padding: 10px 12.5px;
+                        order: 0;
+                        position: relative;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: center;
+
+                        .down-arrow {
+                            flex: 1;
+                            display: flex;
+                            align-items: flex-end;
+                            transition: 0.4s all;
+
+                            &.active {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+
+                    .options-container {
+                        background: $primary;
+                        color: $light;
+                        max-height: 0;
+                        width: 100%;
+                        opacity: 0;
+                        transition: 0.4s all;
+                        border-radius: 8px;
+                        overflow: hidden;
+                        order: 1;
+
+                        &.active {
+                            max-height: 50%;
+                            opacity: 1;
+                            overflow-y: scroll;
+                        }
+
+                        &::-webkit-scrollbar {
+                            width: 8px;
+                            background-color: $secondaryDark;
+                            border-radius: 0 8px 8px 0;
+                        }
+
+                        &::-webkit-scrollbar-thumb {
+                            background: $secondary;
+                            border-radius: 0 8px 8px 0;
+                        }
+
+                        .options {
+                            padding: 12px 24px;
+                        }
+
+                        .options:hover {
+                            background: $secondary;
+                        }
+
+                        .label {
+                            font-size: 16px;
+                            cursor: pointer;
+                        }
+
+                        .options .radio {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

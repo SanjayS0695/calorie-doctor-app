@@ -1,0 +1,54 @@
+@import 'src/assets/scss/variables.module';
+
+.header {
+    position: absolute;
+    color: #fffdfd;
+    opacity: 80%;
+    top: 0;
+    right: 5%;
+    width: 100%;
+    height: auto;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    h2 {
+        padding: 1%;
+        cursor: pointer;
+    }
+}
+
+.body {
+    opacity: 80%;
+    width: 100%;
+
+    .title {
+        font-size: 75px;
+        font-weight: bolder;
+        color: #fffdfd;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sub-title {
+        font-weight: 300;
+        color: #fffdfd;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 2.5%;
+
+        h2 {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.footer {
+    margin-top: 5%;
+}

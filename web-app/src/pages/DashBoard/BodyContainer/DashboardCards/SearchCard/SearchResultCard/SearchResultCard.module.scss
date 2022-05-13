@@ -1,0 +1,121 @@
+@import 'src/assets/scss/variables.module';
+
+:root {
+    --light: #f3f3f3;
+}
+
+.main-wrapper {
+    width: 90%;
+    height: 65%;
+    margin: 5% 0 0% 5%;
+    perspective: 1000px;
+    position: relative;
+
+    .sub-wrapper {
+        width: 100%;
+        height: 100%;
+        transition: transform 1s;
+        transform-style: preserve-3d;
+        position: relative;
+
+        &.flipped {
+            height: 115%;
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            overflow: hidden;
+            border-radius: 16px;
+            box-shadow: 0px 3px 18px 3px rgba(0, 0, 0, 0.2);
+
+            &.front-card {
+                background-color: linear-gradient(
+                    to bottom right,
+                    $secondary,
+                    #99b45a
+                );
+                display: flex;
+
+                ::-webkit-scrollbar {
+                    width: 10px;
+                }
+
+                ::-webkit-scrollbar-track {
+                    box-shadow: inset 0 0 5px rgb(190, 222, 111);
+                    border-radius: 10px;
+                    background: $light;
+                }
+
+                ::-webkit-scrollbar-thumb {
+                    background: #f17f53;
+                    border-radius: 10px;
+                }
+
+                ::-webkit-scrollbar-thumb:hover {
+                    cursor: pointer !important;
+                }
+
+                .search-result-header {
+                    height: 10%;
+                    margin: 5% 10% 0;
+                    width: 100%;
+                    font-size: 20px;
+                    color: $light;
+                    text-shadow: -0.6px -0.6px 0 $textColorMain,
+                        0.6px -0.6px 0 $textColorMain,
+                        -0.6px 0.6px 0 $textColorMain,
+                        0.6px 0.6px 0 $textColorMain;
+                    display: flex;
+                    flex-direction: row;
+
+                    .title {
+                        flex: 1;
+                    }
+                }
+
+                .search-result-body {
+                    top: 15%;
+                    width: 80%;
+                    height: 70%;
+                    margin: 2.5% 10%;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    position: absolute;
+                    display: flex;
+                    flex-direction: column;
+
+                    svg {
+                        font-size: xx-large;
+                    }
+                }
+
+                .close-btn {
+                    position: absolute;
+                    top: 5%;
+                    left: 90%;
+
+                    svg {
+                        color: $textColorMainDark;
+                        font-size: x-large;
+                        &:hover {
+                            background-color: $secondary;
+                            border-radius: 50%;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            &.back-card {
+                background-color: var(--light);
+                transform: rotateY(180deg);
+                background: #ddf0b2;
+            }
+        }
+    }
+}

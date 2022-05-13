@@ -1,0 +1,59 @@
+@import 'src/assets/scss/variables.module';
+
+@mixin flex-align-centre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin background-color {
+    background: linear-gradient(to bottom right, $primary, #99b45a);
+}
+
+.main-container {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding: 0 0 0 5%;
+
+    .circular-progress {
+        flex: 1;
+    }
+
+    .progress-container {
+        flex: 2;
+        color: $light;
+        text-shadow: -0.6px -0.6px 0 $textColorMain,
+            0.6px -0.6px 0 $textColorMain, -0.6px 0.6px 0 $textColorMain,
+            0.6px 0.6px 0 $textColorMain;
+        font-size: 20px;
+        padding: 0 0 0 5%;
+    }
+
+    .actions-container {
+        flex: 1;
+        flex-direction: row;
+
+        svg {
+            margin: 0 0 0 0;
+            color: #55652f;
+            font-size: 35px;
+
+            &:hover {
+                background-color: $secondary;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+        }
+
+        svg:nth-child(2) {
+            margin: 0 0 0 20%;
+            color: #f17f53;
+            font-size: 35px;
+            cursor: pointer;
+        }
+    }
+}

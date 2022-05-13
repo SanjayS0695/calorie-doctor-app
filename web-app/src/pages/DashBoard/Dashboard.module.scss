@@ -1,0 +1,13 @@
+@import 'src/assets/scss/variables.module';
+
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    min-width: 50%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    overflow: hidden;
+}

@@ -1,0 +1,23 @@
+@import "src/assets/scss/variables.module";
+
+.nav-bar-container {
+  background-color: $primary;
+  position: fixed;
+  top: 0;
+  left: 10%;
+  width: 90%;
+  height: 10%;
+  z-index: 1;
+  box-shadow: 0 3px 6px #00000029;
+  display: inline-flex;
+
+  .user-profile-header-container {
+    width: 20%;
+    position: relative;
+  }
+
+  .date-bar-wrapper {
+    width: 80%;
+    position: relative;
+  }
+}

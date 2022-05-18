@@ -3,26 +3,25 @@ server:
 spring:
   application:
     name: api-gateway
-  cloud:
-    gateway:
-      routes:
-        - id: food-service
-          uri: http://localhost:8081/
-          predicates:
-            - Path=/apis/foodItems/**
-        - id: user-service
-          uri: http://localhost:8082/
-          predicates:
-            - Path=/apis/users/**
-        - id: auth-service
-          uri: http://localhost:9000/
-          predicates:
-            - Path=/apis/auth/**
+  config:
+    import: optional:configserver:http://localhost:8888
+#    gateway:
+#      routes:
+#        - id: food-service
+#          uri: http://localhost:8081/
+#          predicates:
+#            - Path=/apis/foodItems/**
+#        - id: user-service
+#          uri: http://localhost:8082/
+#          predicates:
+#            - Path=/apis/users/**
+#        - id: auth-service
+#          uri: http://localhost:9000/
+#          predicates:
+#            - Path=/apis/auth/**
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
     instance:
       preferIpAddress: true
-jwt:
-  secret: secret-string

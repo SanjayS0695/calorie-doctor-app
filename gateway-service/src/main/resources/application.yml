@@ -17,10 +17,12 @@ spring:
         - id: auth-service
           uri: http://localhost:9000/
           predicates:
-            - Path=/apis/login/**
+            - Path=/apis/auth/**
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
     instance:
       preferIpAddress: true
+jwt:
+  secret: secret-string

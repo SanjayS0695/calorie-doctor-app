@@ -2,6 +2,8 @@ package com.caloriedoc.authservice.api;
 
 import com.caloriedoc.authservice.model.AuthRequest;
 import com.caloriedoc.authservice.model.AuthResponse;
+import com.caloriedoc.authservice.model.User;
+import com.caloriedoc.authservice.service.UserServiceManager;
 import com.caloriedoc.authservice.util.JwtUtil;
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("apis/login")
+@RequestMapping("apis/auth")
 public class AuthController {
 
     @Autowired
@@ -29,7 +31,10 @@ public class AuthController {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    @PostMapping
+    @Autowired
+    private UserServiceManager userServiceManager;
+
+    @PostMapping("/login")
     public ResponseEntity<AuthResponse> authenticateUser(@RequestBody @NonNull AuthRequest authRequest) throws  Exception{
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getUsername(), authRequest.getPassword()));
@@ -39,4 +44,10 @@ public class AuthController {
         UserDetails userDetails = userDetailsService.loadUserByUsername(authRequest.getUsername());
         return  ResponseEntity.ok(new AuthResponse(jwtUtil.generateToken(userDetails)));
     }
+
+    @PostMapping("/register")
+    public ResponseEntity<User> create(@RequestBody @NonNull User user) throws  Exception{
+        return  ResponseEntity.ok(userServiceManager.create(user));
+    }
+
 }

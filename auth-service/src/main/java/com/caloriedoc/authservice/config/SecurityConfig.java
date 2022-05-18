@@ -42,7 +42,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         // Set session management to stateless
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and();
-        http.authorizeRequests().antMatchers(HttpMethod.POST,"/apis/login").permitAll()
+        http.authorizeRequests()
+                .antMatchers(HttpMethod.POST,"/apis/auth/login").permitAll()
+                .antMatchers(HttpMethod.POST,"/apis/auth/register").permitAll()
                 .anyRequest().authenticated().and();
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }

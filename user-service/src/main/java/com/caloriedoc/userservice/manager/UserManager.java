@@ -5,6 +5,7 @@ import com.caloriedoc.userservice.exception.GenericException;
 import com.caloriedoc.userservice.model.User;
 import com.caloriedoc.userservice.repository.UserRepository;
 import org.apache.commons.lang.StringUtils;
+import org.mindrot.jbcrypt.BCrypt;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class UserManager {
     private UserRepository userRepository;
 
     public User createUser(User user) {
+        user.setPassword(encodePassword(user.getPassword()));
         return userRepository.save(user);
     }
 
@@ -43,6 +45,10 @@ public class UserManager {
             throw new GenericException(new ErrorResponse(errorMessage), HttpStatus.NOT_FOUND);
         }
         return user;
+    }
+
+    private String encodePassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
     }
 
 }

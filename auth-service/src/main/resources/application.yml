@@ -1,0 +1,9 @@
+server:
+  port: 9000
+jwt:
+  secret: secret-string
+com:
+  caloriedoc:
+    user-service:
+      name: user-service
+      url: localhost:8082
